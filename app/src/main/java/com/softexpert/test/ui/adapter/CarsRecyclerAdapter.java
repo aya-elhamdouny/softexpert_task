@@ -125,7 +125,13 @@ public class CarsRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     .apply(new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.placeholder))
                     .into(carImageView);
             brandTextView.setText("Brand: " + item.getBrand());
-            yearTextView.setText("Year: " + item.getConstractionYear());
+            String year = "";
+            if (item.getConstractionYear() != null)
+                year = item.getConstractionYear();
+            else
+                year = "Not added";
+
+            yearTextView.setText("Year: " + year);
             String isUsed = "";
             if (item.getIsUsed())
                 isUsed = "Yes";
